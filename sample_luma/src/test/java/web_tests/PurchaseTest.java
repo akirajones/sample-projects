@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,20 +21,18 @@ import page.objects.Home;
 import page.objects.ItemPage;
 import page.objects.NewItemPage;
 import page.objects.ShippingPage;
-import testing.TestCaseBase;
+import testing.WebTestCaseBase;
 import ui.utility.UI;
 
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
-public class PurchaseTest implements TestCaseBase {
+public class PurchaseTest implements WebTestCaseBase {
 
     static final Logger logger = LoggerFactory.getLogger(web_tests.SampleWebTest.class);
 
     private static RemoteWebDriver driver = null;
     private static final String lumaUrl = Page.LUMA_MAIN.getValue();
-
-
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
 
 

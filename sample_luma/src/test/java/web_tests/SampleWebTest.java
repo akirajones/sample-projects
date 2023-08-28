@@ -5,24 +5,24 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import page.Page;
 import page.objects.Home;
-import testing.TestCaseBase;
+import testing.WebTestCaseBase;
 
 
-public class SampleWebTest implements TestCaseBase {
+public class SampleWebTest implements WebTestCaseBase {
 
     static final Logger logger = LoggerFactory.getLogger(SampleWebTest.class);
-    private static WebDriver driver = null;
+    private static RemoteWebDriver driver = null;
     private static final String lumaUrl = Page.LUMA_MAIN.getValue();
 
 
@@ -46,6 +46,27 @@ public class SampleWebTest implements TestCaseBase {
         }
     }
 
+    //just here for demo/reference
+    @BeforeEach
+    void beforeEach() {
+        try {
+            //nothing
+        } catch (Exception e) {
+            logger.error(ExceptionUtils.getStackTrace(e));
+        }
+    }
+
+    //just here for demo/reference
+    @AfterEach
+    void afterEach() {
+        try {
+            //nothing
+        } catch (Exception e) {
+            logger.error(ExceptionUtils.getStackTrace(e));
+        }
+    }
+
+    //just here for demo/reference
     @AfterAll
     static void afterAll(TestInfo testInfo) {
         try {
@@ -68,14 +89,13 @@ public class SampleWebTest implements TestCaseBase {
     @Test
     void sampleWebTest1() {
 
-        logger.info("Starting basic sample test");
+        logger.info("Starting sample test");
 
         //sample test steps
         driver.navigate().to(test.getUrl());
         assertTrue(Home.logo.isDisplayed());
 
-        logger.info("Finished basic sample test");
-
     }
 
 }
+

@@ -18,22 +18,15 @@
         <junit.platform.suite.engine.version>1.8.2</junit.platform.suite.engine.version> <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-suite-engine -->
         <junit.platform.suite.version>1.8.2</junit.platform.suite.version> <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-suite -->
         <apache.commons.lang.version>3.12.0</apache.commons.lang.version> <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
-        <!-- <selenium.version>3.141.59</selenium.version>  -->
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
-        <!-- Check for latest version here: https://www.seleniumhq.org/download/ -->
-        <!-- <selenium.chromedriver.version>3.141.59</selenium.chromedriver.version> -->
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
-        <!-- <selenium.safaridriver.version>3.141.59</selenium.safaridriver.version> -->
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-safari-driver -->
-        <!-- <selenium.headlessdriver.version>2.27</selenium.headlessdriver.version> -->
-        <selenium.version>4.8.1</selenium.version> <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java --> <!-- Check for latest version here: https://www.seleniumhq.org/download/ -->
-        <selenium.chromedriver.version>4.8.1</selenium.chromedriver.version> <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
-        <selenium.safaridriver.version>4.8.1</selenium.safaridriver.version> <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-safari-driver -->
-        <selenium.firefoxdriver.version>4.8.1</selenium.firefoxdriver.version> <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-firefox-driver -->
-        <selenium.edgedriver.version>4.8.1</selenium.edgedriver.version> <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-edge-driver -->
-        <selenium.headlessdriver.version>4.8.0</selenium.headlessdriver.version> <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/htmlunit-driver -->
+
+        <selenium.version>4.11.0</selenium.version> <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java --> <!-- Check for latest version here: https://www.seleniumhq.org/download/ -->
+        <selenium.chromedriver.version>4.11.0</selenium.chromedriver.version> <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
+        <selenium.safaridriver.version>4.11.0</selenium.safaridriver.version> <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-safari-driver -->
+        <selenium.firefoxdriver.version>4.11.0</selenium.firefoxdriver.version> <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-firefox-driver -->
+        <selenium.edgedriver.version>4.11.0</selenium.edgedriver.version> <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-edge-driver -->
+        <selenium.headlessdriver.version>4.11.0</selenium.headlessdriver.version> <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/htmlunit-driver -->
         <apache.metamodel.version>5.3.3</apache.metamodel.version> <!-- https://mvnrepository.com/artifact/org.apache.metamodel/MetaModel-full -->
-        <bonigarcia.version>5.5.2</bonigarcia.version> <!-- Check for latest version here: https://github.com/bonigarcia/webdrivermanager/ -->
+
         <org.json.version>20211205</org.json.version> <!-- Check for latest version here: https://mvnrepository.com/artifact/org.json/json -->
         <apache.logging.log4j.version>2.17.1</apache.logging.log4j.version> <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
     </properties>
@@ -110,11 +103,7 @@
             <artifactId>MetaModel-full</artifactId>
             <version>${apache.metamodel.version}</version>
         </dependency>
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId> <!-- Required to keep Selenium WebDriver binaries all up to date and paths set so we don't have to in code -->
-            <artifactId>webdrivermanager</artifactId>
-            <version>${bonigarcia.version}</version>
-        </dependency>
+
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId> <!-- Required for UI browser testing -->
             <artifactId>selenium-java</artifactId>

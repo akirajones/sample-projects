@@ -19,13 +19,13 @@
         <apache.commons.lang.version>3.11</apache.commons.lang.version>     <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
         <rest-assured.version>5.3.0</rest-assured.version>      <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
         <postgresql.version>42.3.1</postgresql.version>        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
-        <selenium.version>4.5.3</selenium.version>         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java --><!-- Check for latest version here: https://www.seleniumhq.org/download/ -->
-        <selenium.chromedriver.version>4.5.3</selenium.chromedriver.version>     <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
-        <selenium.safaridriver.version>4.5.3</selenium.safaridriver.version>     <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-safari-driver -->
-        <selenium.headlessdriver.version>4.5.2</selenium.headlessdriver.version>		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/htmlunit-driver -->
+        <selenium.version>4.11.0</selenium.version>         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java --><!-- Check for latest version here: https://www.seleniumhq.org/download/ -->
+        <selenium.chromedriver.version>4.11.0</selenium.chromedriver.version>     <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
+        <selenium.safaridriver.version>4.11.0</selenium.safaridriver.version>     <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-safari-driver -->
+        <selenium.headlessdriver.version>4.11.0</selenium.headlessdriver.version>		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/htmlunit-driver -->
         <appium.version>8.3.0</appium.version>		<!-- https://mvnrepository.com/artifact/io.appium/java-client -->
         <apache.metamodel.version>5.3.2</apache.metamodel.version>      <!-- https://mvnrepository.com/artifact/org.apache.metamodel/MetaModel-full -->
-        <bonigarcia.version>5.5.2</bonigarcia.version>      <!-- Check for latest version here: https://github.com/bonigarcia/webdrivermanager/ -->
+
         <org.json.version>20211205</org.json.version>       <!-- Check for latest version here: https://mvnrepository.com/artifact/org.json/json -->
         <open.csv.version>4.4</open.csv.version>            <!-- Check for latest version here: https://mvnrepository.com/artifact/com.opencsv/opencsv -->
         <json.simple.version>1.1.1</json.simple.version>    <!-- Check for latest version here: https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
@@ -60,11 +60,6 @@
             <version>${apache.metamodel.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId>				<!-- Required to keep Selenium WebDriver binaries all up to date and paths set so we don't have to in code -->
-            <artifactId>webdrivermanager</artifactId>
-            <version>${bonigarcia.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>			<!-- Required for UI browser testing -->
