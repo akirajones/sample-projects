@@ -1,0 +1,221 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>sample_tests</groupId>
+    <artifactId>luma</artifactId>
+    <version>1.0.0</version>
+    <properties>
+        <maven.compiler.source>16</maven.compiler.source>
+        <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
+        <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version> <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+        <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
+        <codehaus.mojo.version>3.0.0</codehaus.mojo.version> <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/buildnumber-maven-plugin -->
+        <junit.jupiter.version>5.8.2</junit.jupiter.version> <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
+        <junit.api.version>5.8.2</junit.api.version> <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+        <junit.platform.version>1.8.2</junit.platform.version>
+        <junit.platform.commons>1.8.2</junit.platform.commons> <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-commons -->
+        <junit.platform.runner>1.8.2</junit.platform.runner> <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-runner -->
+        <junit.platform.suite.api.version>1.8.2</junit.platform.suite.api.version> <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-suite-api -->
+        <junit.platform.suite.engine.version>1.8.2</junit.platform.suite.engine.version> <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-suite-engine -->
+        <junit.platform.suite.version>1.8.2</junit.platform.suite.version> <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-suite -->
+        <apache.commons.lang.version>3.12.0</apache.commons.lang.version> <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <!-- <selenium.version>3.141.59</selenium.version>  -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+        <!-- Check for latest version here: https://www.seleniumhq.org/download/ -->
+        <!-- <selenium.chromedriver.version>3.141.59</selenium.chromedriver.version> -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
+        <!-- <selenium.safaridriver.version>3.141.59</selenium.safaridriver.version> -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-safari-driver -->
+        <!-- <selenium.headlessdriver.version>2.27</selenium.headlessdriver.version> -->
+        <selenium.version>4.8.1</selenium.version> <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java --> <!-- Check for latest version here: https://www.seleniumhq.org/download/ -->
+        <selenium.chromedriver.version>4.8.1</selenium.chromedriver.version> <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
+        <selenium.safaridriver.version>4.8.1</selenium.safaridriver.version> <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-safari-driver -->
+        <selenium.firefoxdriver.version>4.8.1</selenium.firefoxdriver.version> <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-firefox-driver -->
+        <selenium.edgedriver.version>4.8.1</selenium.edgedriver.version> <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-edge-driver -->
+        <selenium.headlessdriver.version>4.8.0</selenium.headlessdriver.version> <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/htmlunit-driver -->
+        <apache.metamodel.version>5.3.3</apache.metamodel.version> <!-- https://mvnrepository.com/artifact/org.apache.metamodel/MetaModel-full -->
+        <bonigarcia.version>5.5.2</bonigarcia.version> <!-- Check for latest version here: https://github.com/bonigarcia/webdrivermanager/ -->
+        <org.json.version>20211205</org.json.version> <!-- Check for latest version here: https://mvnrepository.com/artifact/org.json/json -->
+        <apache.logging.log4j.version>2.17.1</apache.logging.log4j.version> <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
+    </properties>
+    <dependencies>
+        <!-- junit dependencies -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.jupiter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.jupiter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId>
+            <version>${junit.platform.suite.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-runner</artifactId>
+            <version>${junit.platform.runner}</version>
+        </dependency>
+        <!-- end junit dependencies -->
+        <!-- junit transitive dependencies -->
+        <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-suite-commons -->
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite-commons</artifactId>
+            <version>1.8.2</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher -->
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-launcher</artifactId>
+            <version>1.8.2</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-engine -->
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-engine</artifactId>
+            <version>1.8.2</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-commons -->
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-commons</artifactId>
+            <version>1.8.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.opentest4j/opentest4j -->
+        <dependency>
+            <groupId>org.opentest4j</groupId>
+            <artifactId>opentest4j</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+        <!-- end of junit transitive dependencies -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${apache.commons.lang.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.metamodel</groupId>
+            <artifactId>MetaModel-full</artifactId>
+            <version>${apache.metamodel.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId> <!-- Required to keep Selenium WebDriver binaries all up to date and paths set so we don't have to in code -->
+            <artifactId>webdrivermanager</artifactId>
+            <version>${bonigarcia.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId> <!-- Required for UI browser testing -->
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId> <!-- chrome browser driver -->
+            <artifactId>selenium-chrome-driver</artifactId>
+            <version>${selenium.chromedriver.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId> <!-- safari browser driver -->
+            <artifactId>selenium-safari-driver</artifactId>
+            <version>${selenium.safaridriver.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId> <!-- firefox browser driver -->
+            <artifactId>selenium-firefox-driver</artifactId>
+            <version>${selenium.firefoxdriver.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId> <!-- edge browser driver -->
+            <artifactId>selenium-edge-driver</artifactId>
+            <version>${selenium.edgedriver.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId> <!-- headless browser driver -->
+            <artifactId>htmlunit-driver</artifactId>
+            <version>${selenium.headlessdriver.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${org.json.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${apache.logging.log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-text</artifactId>
+            <version>1.8</version>
+        </dependency>
+        <dependency>
+            <groupId>sample_test</groupId>
+            <artifactId>sample-core</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>4.11.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin.version}</version>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven.compiler.plugin.version}</version>
+                    <configuration>
+                        <source>11</source>
+                        <target>11</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>buildnumber-maven-plugin</artifactId>
+                    <version>${codehaus.mojo.version}</version>
+                    <executions>
+                        <execution>
+                            <id>buildnumber</id>
+                            <phase>validate</phase>
+                            <goals>
+                                <goal>create</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <format>{0,number}</format>
+                        <items>
+                            <item>buildNumber</item>
+                        </items>
+                        <doCheck>false</doCheck>
+                        <doUpdate>false</doUpdate>
+                        <revisionOnScmFailure>unknownbuild</revisionOnScmFailure>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <finalName>${project.artifactId}.${project.version}</finalName>
+    </build>
+</project>
