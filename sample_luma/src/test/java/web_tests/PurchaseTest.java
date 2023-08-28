@@ -1,26 +1,19 @@
 package web_tests;
 
+import com.github.javafaker.Faker;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import page.Page;
-import page.objects.Home;
-import page.objects.ItemPage;
-import page.objects.NewItemPage;
-import page.objects.ShippingPage;
+import page.objects.*;
 import testing.WebTestCaseBase;
 import ui.utility.UI;
 
@@ -54,6 +47,7 @@ public class PurchaseTest implements WebTestCaseBase {
             NewItemPage.initializePageObjects(driver);
             ItemPage.initializePageObjects(driver);
             ShippingPage.initializePageObjects(driver);
+            CheckoutPage.initializePageObjects(driver);
         } catch (Exception e) {
             logger.error(ExceptionUtils.getStackTrace(e));
         }
@@ -81,7 +75,7 @@ public class PurchaseTest implements WebTestCaseBase {
     @Test
     void purchaseTest() {
 
-        //Simple test to confirm user is able to complete a purchase
+        //This is a simple test to confirm user is able to complete a purchase
 
         logger.info("Starting purchase test");
 
@@ -104,6 +98,8 @@ public class PurchaseTest implements WebTestCaseBase {
         wait.until(ExpectedConditions.visibilityOf(ItemPage.logo));
         ItemPage.selectSize();
         ItemPage.selectColor();
+
+        //Add item to cart
         UI.click(ItemPage.addToCartButton);
         wait.until(ExpectedConditions.visibilityOf(ItemPage.itemAddedMessage));
         assertTrue(ItemPage.itemAddedMessage.isDisplayed());
@@ -115,12 +111,53 @@ public class PurchaseTest implements WebTestCaseBase {
         UI.click(ItemPage.checkoutButton);
 
         //Enter shipping information
+        wait.until(ExpectedConditions.visibilityOf(ShippingPage.emailTextBox));
+
+        ShippingPage.emailTextBox.sendKeys(randomEmail());
+        ShippingPage.firstNameTextBox.sendKeys("John");  // ---- intentionally leaving some fields hardcoded
+        ShippingPage.lastNameTextBox.sendKeys("Doe");
+        ShippingPage.address1TextBox.sendKeys("123 Main Street");
+        ShippingPage.cityTextBox.sendKeys("New York");
+
+        UI.click(ShippingPage.stateDropdown);
+        ShippingPage.stateDropdown.sendKeys("New York");
+
+        ShippingPage.zipTextBox.sendKeys("10003");
+        ShippingPage.phoneTextBox.sendKeys(randomPhone());
+
+        UI.click(ShippingPage.tableRateRadioButton);
+        UI.click(ShippingPage.nextButton);
 
 
+        //Complete checkout
+        wait.until(ExpectedConditions.visibilityOf(CheckoutPage.placeOrderButton));
+        UI.click(CheckoutPage.placeOrderButton);
+        assertTrue(CheckoutPage.confirmationText.isDisplayed());
 
         logger.info("Finished basic sample test");
 
     }
+
+
+    /*
+     * ====================================================================
+     *
+     * Helper Methods
+     *
+     * ====================================================================
+     */
+
+    public static String randomEmail() {
+        Faker faker = new Faker();
+        return faker.internet().emailAddress();
+    }
+
+    public static String randomPhone() {
+        Faker faker = new Faker();
+        return faker.phoneNumber().toString();
+    }
+
+
 
 }
 
