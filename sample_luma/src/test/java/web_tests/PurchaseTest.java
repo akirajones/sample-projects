@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import page.Customer;
 import page.Page;
 import page.objects.*;
 import testing.WebTestCaseBase;
@@ -114,19 +115,19 @@ public class PurchaseTest implements WebTestCaseBase {
         //Enter shipping information
         wait.until(ExpectedConditions.visibilityOf(ShippingPage.nextButton));
 
-        ShippingPage.emailTextBox.sendKeys(randomEmail());
-        ShippingPage.firstNameTextBox.sendKeys("John");  // ---- intentionally leaving some fields hardcoded
-        ShippingPage.lastNameTextBox.sendKeys("Doe");
-        ShippingPage.address1TextBox.sendKeys("123 Main Street");
-        ShippingPage.cityTextBox.sendKeys("New York");
-
+        ShippingPage.emailTextBox.sendKeys(Customer.randomEmail());
+        ShippingPage.firstNameTextBox.sendKeys(Customer.randomFirstName());
+        ShippingPage.lastNameTextBox.sendKeys(Customer.randomLastName());
+        ShippingPage.companyTextBox.sendKeys(Customer.randomCompany());
+        ShippingPage.address1TextBox.sendKeys(Customer.randomAddressLine1());
+        ShippingPage.address2TextBox.sendKeys(Customer.randomAddressLine2());
+        ShippingPage.cityTextBox.sendKeys(Customer.randomCity());
         UI.click(ShippingPage.stateDropdown);
-        ShippingPage.stateDropdown.sendKeys("New York");
-
-        ShippingPage.zipTextBox.sendKeys("10003");
-        ShippingPage.phoneTextBox.sendKeys(randomPhone());
-
+        ShippingPage.stateDropdown.sendKeys(Customer.randomState());
+        ShippingPage.zipTextBox.sendKeys(Customer.randomZip());
+        ShippingPage.phoneTextBox.sendKeys(Customer.randomPhone());
         UI.click(ShippingPage.tableRateRadioButton);
+
         UI.click(ShippingPage.nextButton);
 
         //Complete checkout
@@ -147,15 +148,7 @@ public class PurchaseTest implements WebTestCaseBase {
      * ====================================================================
      */
 
-    public static String randomEmail() {
-        Faker faker = new Faker();
-        return faker.internet().emailAddress();
-    }
 
-    public static String randomPhone() {
-        Faker faker = new Faker();
-        return faker.phoneNumber().phoneNumber();
-    }
 
 
 

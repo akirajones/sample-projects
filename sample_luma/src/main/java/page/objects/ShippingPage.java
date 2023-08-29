@@ -23,16 +23,16 @@ public class ShippingPage {
     @FindBy(name = "lastname")
     public static WebElement lastNameTextBox;
 
-    @FindBy(id = "CS007H1")
+    @FindBy(name = "company")
     public static WebElement companyTextBox;
 
     @FindBy(name = "street[0]")
     public static WebElement address1TextBox;
 
-    @FindBy(id = "HRRC00N")
+    @FindBy(name = "street[1]")
     public static WebElement address2TextBox;
 
-    @FindBy(id = "MLDCOYV")
+    @FindBy(name = "street[2]")
     public static WebElement address3TextBox;
 
     @FindBy(name = "city")
