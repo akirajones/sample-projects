@@ -1,6 +1,7 @@
 package web_tests;
 
 import com.github.javafaker.Faker;
+import com.github.javafaker.PhoneNumber;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -128,7 +129,6 @@ public class PurchaseTest implements WebTestCaseBase {
         UI.click(ShippingPage.tableRateRadioButton);
         UI.click(ShippingPage.nextButton);
 
-
         //Complete checkout
         wait.until(ExpectedConditions.visibilityOf(CheckoutPage.placeOrderButton));
         UI.click(CheckoutPage.placeOrderButton);
@@ -154,7 +154,7 @@ public class PurchaseTest implements WebTestCaseBase {
 
     public static String randomPhone() {
         Faker faker = new Faker();
-        return faker.phoneNumber().toString();
+        return faker.phoneNumber().phoneNumber();
     }
 
 
