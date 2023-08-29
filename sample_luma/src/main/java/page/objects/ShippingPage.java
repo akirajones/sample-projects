@@ -17,16 +17,16 @@ public class ShippingPage {
     @FindBy(id = "customer-password")
     public static WebElement passwordTextBox;
 
-    @FindBy(xpath = "//*[@id=\"shipping-new-address-form\"]/div[1]")
+    @FindBy(name = "firstname")
     public static WebElement firstNameTextBox;
 
-    @FindBy(id = "MS95DOK")
+    @FindBy(name = "lastname")
     public static WebElement lastNameTextBox;
 
     @FindBy(id = "CS007H1")
     public static WebElement companyTextBox;
 
-    @FindBy(id = "H79NKLA")
+    @FindBy(name = "street[0]")
     public static WebElement address1TextBox;
 
     @FindBy(id = "HRRC00N")
@@ -35,19 +35,19 @@ public class ShippingPage {
     @FindBy(id = "MLDCOYV")
     public static WebElement address3TextBox;
 
-    @FindBy(id = "TPIK8O0")
+    @FindBy(name = "city")
     public static WebElement cityTextBox;
 
-    @FindBy(id = "HGBAGUO")
+    @FindBy(name = "region_id")
     public static WebElement stateDropdown;
 
-    @FindBy(id = "GCHUT34")
+    @FindBy(name = "postcode")
     public static WebElement zipTextBox;
 
     @FindBy(id = "GSV6W3A")
     public static WebElement countryDropdown;
 
-    @FindBy(id = "KDTYRX0")
+    @FindBy(name = "telephone")
     public static WebElement phoneTextBox;
 
     @FindBy(xpath = "//*[@id=\"checkout-shipping-method-load\"]/table/tbody/tr[1]/td[1]/input")

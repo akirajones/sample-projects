@@ -111,7 +111,7 @@ public class PurchaseTest implements WebTestCaseBase {
         UI.click(ItemPage.checkoutButton);
 
         //Enter shipping information
-        wait.until(ExpectedConditions.visibilityOf(ShippingPage.emailTextBox));
+        wait.until(ExpectedConditions.visibilityOf(ShippingPage.nextButton));
 
         ShippingPage.emailTextBox.sendKeys(randomEmail());
         ShippingPage.firstNameTextBox.sendKeys("John");  // ---- intentionally leaving some fields hardcoded

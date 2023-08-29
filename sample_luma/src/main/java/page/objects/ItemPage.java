@@ -37,15 +37,19 @@ public class ItemPage {
 
     public static void selectSize() {
         List<WebElement> size = driver.findElements(By.xpath("//*[@id=\"product-options-wrapper\"]/div/div/div[1]/div/div"));
-        int i = NumberHelper.generateRandomInteger(size.size());
-        size.get(i).click();
+        if(!size.isEmpty()) {
+            int i = NumberHelper.generateRandomInteger(size.size());
+            size.get(i).click();
+        }
     }
 
     public static void selectColor() {
 
         List<WebElement> color = driver.findElements(By.xpath("//*[@id=\"product-options-wrapper\"]/div/div/div[2]/div/div"));
-        int i = NumberHelper.generateRandomInteger(color.size());
-        color.get(i).click();
+        if(!color.isEmpty()) {
+            int i = NumberHelper.generateRandomInteger(color.size());
+            color.get(i).click();
+        }
     }
 
 }
